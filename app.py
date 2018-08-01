@@ -4,9 +4,9 @@ from flask import Flask
 from imp import reload
 from flask import request,render_template
 from KuGou_Spid import Music_download
+from KuGou_Spid import free_proxyIP
 
 reload(sys)
-sys.setdefaultencoding('utf-8')
 
 app = Flask(__name__)
 
@@ -29,3 +29,4 @@ def search():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    # free_proxyIP.main()
