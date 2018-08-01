@@ -1,8 +1,8 @@
 # coding=utf-8
 import requests
 import json
-from free_proxyIP import proxyip
-
+from KuGou_Spid import free_proxyIP
+IPtext = free_proxyIP.proxyip()
 headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
     'Accept-Encoding': 'gzip, deflate',
@@ -15,7 +15,7 @@ headers = {
 
 
 def parse(url):
-    IP = {'http': proxyip()}
+    IP = {'http': IPtext}
     ret = json.loads(requests.get(url, headers=headers, proxies=IP, timeout=5).text)
     # 返回的是已经转换过后的字典数据
     return ret
