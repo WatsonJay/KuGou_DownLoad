@@ -6,7 +6,6 @@ from flask import request,render_template
 from KuGou_Spid import Music_download
 
 reload(sys)
-sys.setdefaultencoding('utf-8')
 
 app = Flask(__name__)
 

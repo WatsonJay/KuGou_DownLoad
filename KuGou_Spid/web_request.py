@@ -16,7 +16,7 @@ headers = {
 
 def parse(url):
     IP = {'http': IPtext}
-    ret = json.loads(requests.get(url, headers=headers, proxies=IP, timeout=5).text)
+    ret = json.loads(requests.get(url, headers=headers,timeout=5).text)
     # 返回的是已经转换过后的字典数据
     return ret
 

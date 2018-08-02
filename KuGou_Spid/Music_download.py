@@ -1,4 +1,4 @@
-# coding=utf-8
+    # coding=utf-8
 import copy
 import hashlib
 from KuGou_Spid import web_request
@@ -11,21 +11,24 @@ Music_api_2 = 'http://trackercdn.kugou.com/i/v2/?appid=1005&pid=2&cmd=25&behavio
 # 老版系统,加密方式为md5(hash +"kgcloud")（备用）
 Music_api_3 = 'http://trackercdn.kugou.com/i/?cmd=4&pid=1&forceDown=0&vip=1'
 def V2Md5(Hash):  # 用于生成key,适用于V2版酷狗系统
-    return hashlib.md5((Hash + 'kgcloudv2').encode('utf-8')).hexdigest()
+    return hashlib.md5((Hash + 'kgcloudv2').encode("utf-8")).hexdigest()
 def Md5(Hash):  # 用于老版酷狗系统
-    return hashlib.md5((Hash + 'kgcloud').encode('utf-8')).hexdigest()
+    return hashlib.md5((Hash + 'kgcloud').encode("utf-8")).hexdigest()
 def HighSearch(keyword):
     music_list = Music_Search.search(keyword)
     if music_list is not None:
         item, items = {}, []
         for music in music_list:
-            Hash = str.lower(music['Hash'].encode('utf-8'))
+            Hash = str.lower(music['Hash'])
             key_new = V2Md5(Hash)  # 生成v2系统key
             try:
-                DownUrl = Music_Search.parse(Music_api_1 + '&hash=%s&key=%s' % (Hash, key_new))['url']
-                item['Song'] = music['Song'].encode('utf-8')  # 歌名
-                item['Singer'] = music['Singer'].encode('utf-8')  # 歌手
+                DownUrl = web_request.parse(Music_api_2 + '&hash=%s&key=%s' % (Hash, key_new))['url']
+                item['Song'] = music['Song'] # 歌名
+                item['Singer'] = music['Singer']  # 歌手
                 item['url'] = DownUrl
+                item['Size'] = music['Size']
+                item['minute'] = music['minute']
+                item['second'] = music['second']
                 items.append(copy.deepcopy(item))
             except KeyError:
                 pass

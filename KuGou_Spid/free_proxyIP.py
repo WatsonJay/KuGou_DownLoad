@@ -72,7 +72,7 @@ def proxyip():
 
 
 def main():
-    csv_file = open('IP/validate.csv', 'w', newline='')
+    csv_file = open('KuGou_Spid/IP/validate.csv', 'w', newline='')
     writer = csv.writer(csv_file)
     writer.writerow(['ip'])
     url = 'https://www.kuaidaili.com/free/intr/{}/'  # 这是网站的 url
