@@ -1,4 +1,4 @@
-    # coding=utf-8
+# coding=utf-8
 import copy
 import hashlib
 from KuGou_Spid import web_request
