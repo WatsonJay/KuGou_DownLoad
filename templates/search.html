@@ -3,8 +3,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>无损音乐搜索下载</title>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+    <link rel='stylesheet prefetch' href='css/reset.css'>
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<style type="text/css">
 		body{margin:0; font-family:arial; font-size:13px;line-height:24px;}
 		form{margin:0; padding:0;}
@@ -12,8 +14,8 @@
 		a:hover{color:#00c;}
 		#container{margin:19 auto;}
 		#content{margin-top:65px; margin-bottom:350px;}
-		#content #title{width:360px; height:69px; margin-left:auto; margin-right:auto;}
-		#content #shuru{width:650px; height:50px; margin-top:22px; margin-left:auto; margin-right:auto;}
+		#content #title1{width:360px; height:69px; margin-left:auto; margin-right:auto;}
+		#content #shuru{width:650px; height:50px; margin-top:10px; margin-left:auto; margin-right:auto;}
 		#content #shuru .kuang{font-size:14px; line-height:25px;width:539px; height:36px; border:1px solid #ccc; border-right:none; padding-left:8px; padding-right:8px;}
 		#content #shuru .kuang:hover{border:1px solid #b8b8b8; border-right:none;}
 		#content #shuru .kuang:focus{border:1px solid #2d78f4; border-right:none;}
@@ -25,104 +27,7 @@
 		#footer #footer2{color:#666}
 		#footer #footer2 a{color:#666;}
 		#footer #footer2 span{display:inline-block; width:14px; height:17px; background:url("http://s1.bdstatic.com/r/www/cache/static/global/img/icons_3bfb8e45.png") -600px -96px no-repeat; position:relative; top:3px;}
-        .row{
-            margin-left:auto;
-            margin-right:auto;
-        }
-        .tab
-        {
-            width:650px;
-            margin-left:auto;
-            margin-right:auto;
-        }
-        .tab .nav-tabs{
-            width:650px;
-		    border-bottom: none;
-		    position: relative;
-            margin-left:auto;
-            margin-right:auto;
-		}
-		.tab .nav-tabs li{
-		    margin-right: 60px;
-		    z-index: 1;
-		}
-		.tab .nav-tabs li:after{
-		    content: "";
-		    width: 100%;
-		    border: 1px solid #ccc6c6;
-		    position: absolute;
-		    top: 50%;
-		    right: -60%;
-		    z-index: -1;
-		}
-		.tab .nav-tabs li:last-child:after{
-		    border: none;
-		}
-		.tab .nav-tabs li a{
-		    display: block;
-		    padding: 15px 20px;
-		    background: #fff;
-		    font-size: 15px;
-		    font-weight: 600;
-		    color: #956cae;
-		    text-transform: uppercase;
-		    border-radius: 0;
-		    margin-right: 0;
-		    border: 2px solid #956cae;
-		    position: relative;
-		    overflow: hidden;
-		    z-index: 1;
-		    transition: all 0.3s ease 0s;
-		}
-		.tab .nav-tabs li.active a,
-		.tab .nav-tabs li a:hover{
-		    color: #fff;
-		    border: 2px solid #956cae;
-		}
-		.tab .nav-tabs li a:after{
-		    content: "";
-		    display: block;
-		    width: 100%;
-		    height: 0;
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    z-index: -1;
-		    transition: all 0.3s ease 0s;
-		}
-		.tab .nav-tabs li.active a:after,
-		.tab .nav-tabs li a:hover:after{
-		    height: 100%;
-		    background: #956cae;
-		}
-		.tab .tab-content{
-		    padding: 20px 10px;
-		    margin-top: 0;
-		    font-size: 14px;
-		    color: #999;
-		    line-height: 26px;
-		}
-		.tab .tab-content h3{
-		    font-size: 24px;
-		    margin-top: 0;
-		}
-		@media only screen and (max-width: 767px){
-		    .tab .nav-tabs li{ margin: 0 25px 0 0; }
-		}
-		@media only screen and (max-width: 479px){
-		    .tab .nav-tabs li{
-		        width: 100%;
-		        text-align: center;
-		        margin: 0 0 10px 0;
-		    }
-		    .tab .nav-tabs li:after{
-		        width: 0;
-		        height: 100%;
-		        top: auto;
-		        bottom: -60%;
-		        right: 50%;
-		    }
-        }
+
 	</style>
 	<script>
 		function checkForm(){
@@ -137,47 +42,39 @@
 	<div id="container">
         <div class="clearfloat"></div>
 		<div id="content">
-			<div id="title"><h1>搜索下载你想要的音乐</h1></div>
+			<div id="title1"><h1>搜索下载你想要的音乐</h1></div>
 			<div id="shuru">
 				<form name="" action="" method="post" target="_blank" onsubmit="return checkForm()" >
 					<input id="q" class="kuang" type="text" name="keyword">
 					<input class="button" style="color:white;" type="submit" value="开始搜索">
 				</form>
 			</div>
-            <div class="demo">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-md-offset-3 col-md-6">
-		                    <div class="tab" role="tabpanel">
-		                        <!-- Nav tabs -->
-		                        <ul class="nav nav-tabs" role="tablist">
-		                            <li role="presentation" class="active"><a href="#Section1" aria-controls="kugou" role="tab" data-toggle="tab">酷狗音乐</a></li>
-		                            <li role="presentation"><a href="#Section2" aria-controls="xiami" role="tab" data-toggle="tab">虾米音乐</a></li>
-		                            <li role="presentation"><a href="#Section3" aria-controls="qq" role="tab" data-toggle="tab">QQ音乐</a></li>
-                                    <li role="presentation"><a href="#Section4" aria-controls="wangyi" role="tab" data-toggle="tab">网易音乐</a></li>
-		                        </ul>
-		                        <!-- Tab panes -->
-		                        <div class="tab-content tabs">
-		                            <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-		                                <h3>酷狗音乐搜索结果</h3>
-
-		                            </div>
-		                            <div role="tabpanel" class="tab-pane fade" id="Section2">
-		                                <h3>虾米音乐搜索结果</h3>
-		                            </div>
-		                            <div role="tabpanel" class="tab-pane fade" id="Section3">
-                                        <h3>QQ音乐搜索结果</h3>
-		                            </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="Section4">
-                                        <h3>网易音乐搜索结果</h3>
-		                            </div>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
+            <div class="tabs">
+		        <div class="tabs-header">
+		            <div class="border"></div>
+		                <ul>
+		                    <li class="active"><a href="#tab-1" tab-id="1" ripple="ripple" ripple-color="#FFF">酷狗音乐</a></li>
+                            <li><a href="#tab-2" tab-id="2" ripple="ripple" ripple-color="#FFF">qq音乐</a></li>
+		                    <li><a href="#tab-3" tab-id="3" ripple="ripple" ripple-color="#FFF">虾米音乐</a></li>
+                            <li><a href="#tab-4" tab-id="4" ripple="ripple" ripple-color="#FFF">网易音乐</a></li>
+		                </ul>
+                    <nav class="tabs-nav"><i id="prev" ripple="ripple" ripple-color="#FFF" class="material-icons">&#xE314;</i><i id="next" ripple="ripple" ripple-color="#FFF" class="material-icons">&#xE315;</i></nav>
 		        </div>
-		    </div>
+		        <div class="tabs-content">
+		            <div tab-id="1" class="tab active">
+
+                    </div>
+		            <div tab-id="3" class="tab">
+
+                    </div>
+                    <div tab-id="4" class="tab">
+
+                    </div>
+                </div>
+		  </div>
 		</div>
+		</div>
+
 		<div id="footer">
 			<div id="footer2">
 				免责声明：本站搜索结果来源网络，不存储任何内容，只提供信息检索服务，对其合法性概不负责，亦不承担任何法律责任。</br>
@@ -186,7 +83,87 @@
 		</div>
 	</div>
 
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='js/stopExecutionOnTimeout.js?t=1'></script>
+	<script>
+	$(document).ready(function () {
+	    var activePos = $('.tabs-header .active').position();
+	    function changePos() {
+	        activePos = $('.tabs-header .active').position();
+	        $('.border').stop().css({
+	            left: activePos.left,
+	            width: $('.tabs-header .active').width()
+	        });
+	    }
+	    changePos();
+	    var tabHeight = $('.tab.active').height();
+	    function animateTabHeight() {
+	        tabHeight = $('.tab.active').height();
+	        $('.tabs-content').stop().css({ height: tabHeight + 'px' });
+	    }
+	    animateTabHeight();
+	    function changeTab() {
+	        var getTabId = $('.tabs-header .active a').attr('tab-id');
+	        $('.tab').stop().fadeOut(300, function () {
+	            $(this).removeClass('active');
+	        }).hide();
+	        $('.tab[tab-id=' + getTabId + ']').stop().fadeIn(300, function () {
+	            $(this).addClass('active');
+	            animateTabHeight();
+	        });
+	    }
+	    $('.tabs-header a').on('click', function (e) {
+	        e.preventDefault();
+	        var tabId = $(this).attr('tab-id');
+	        $('.tabs-header a').stop().parent().removeClass('active');
+	        $(this).stop().parent().addClass('active');
+	        changePos();
+	        tabCurrentItem = tabItems.filter('.active');
+	        $('.tab').stop().fadeOut(300, function () {
+	            $(this).removeClass('active');
+	        }).hide();
+	        $('.tab[tab-id="' + tabId + '"]').stop().fadeIn(300, function () {
+	            $(this).addClass('active');
+	            animateTabHeight();
+	        });
+	    });
+	    var tabItems = $('.tabs-header ul li');
+	    var tabCurrentItem = tabItems.filter('.active');
+	    $('#next').on('click', function (e) {
+	        e.preventDefault();
+	        var nextItem = tabCurrentItem.next();
+	        tabCurrentItem.removeClass('active');
+	        if (nextItem.length) {
+	            tabCurrentItem = nextItem.addClass('active');
+	        } else {
+	            tabCurrentItem = tabItems.first().addClass('active');
+	        }
+	        changePos();
+	        changeTab();
+	    });
+	    $('#prev').on('click', function (e) {
+	        e.preventDefault();
+	        var prevItem = tabCurrentItem.prev();
+	        tabCurrentItem.removeClass('active');
+	        if (prevItem.length) {
+	            tabCurrentItem = prevItem.addClass('active');
+	        } else {
+	            tabCurrentItem = tabItems.last().addClass('active');
+	        }
+	        changePos();
+	        changeTab();
+	    });
+	    $('[ripple]').on('click', function (e) {
+	        var rippleDiv = $('<div class="ripple" />'), rippleOffset = $(this).offset(), rippleY = e.pageY - rippleOffset.top, rippleX = e.pageX - rippleOffset.left, ripple = $('.ripple');
+	        rippleDiv.css({
+	            top: rippleY - ripple.height() / 2,
+	            left: rippleX - ripple.width() / 2,
+	            background: $(this).attr('ripple-color')
+	        }).appendTo($(this));
+	        window.setTimeout(function () {
+	            rippleDiv.remove();
+	        }, 1500);
+	    });
+	});
+	</script>
 </body>
 </html>
