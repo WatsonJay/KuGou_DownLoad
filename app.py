@@ -1,6 +1,7 @@
 # coding=utf-8
 import sys
 from flask import Flask
+from flask_cors import *
 from imp import reload
 from flask import request,render_template
 from KuGou_Spid import Music_download
@@ -9,6 +10,7 @@ from KuGou_Spid import free_proxyIP
 reload(sys)
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/', methods=['GET', 'POST'])
 
@@ -26,6 +28,13 @@ def search():
 
     else:
         return render_template('404.html')
+
+
+@app.route('/index', methods=['GET', 'POST'])
+
+def play():
+    p = request.args.get('playlist');
+    return render_template('index.html', playlist=p)
 
 if __name__ == '__main__':
     app.run(debug=True)

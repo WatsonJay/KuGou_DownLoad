@@ -20,9 +20,9 @@ def HighSearch(keyword):
         item, items = {}, []
         for music in music_list:
             Hash = str.lower(music['Hash'])
-            key_new = V2Md5(Hash)  # 生成v2系统key
+            key_new = Md5(Hash)  # 生成v2系统key
             try:
-                DownUrl = web_request.parse(Music_api_2 + '&hash=%s&key=%s' % (Hash, key_new))['url']
+                DownUrl = web_request.parse(Music_api_3 + '&hash=%s&key=%s' % (Hash, key_new))['url']
                 item['Song'] = music['Song'] # 歌名
                 item['Singer'] = music['Singer']  # 歌手
                 item['url'] = DownUrl

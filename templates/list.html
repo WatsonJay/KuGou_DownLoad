@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +12,7 @@
             歌手:{{ music['Singer'] }}
             文件大小:{{ music['Size'] }}
             时长:{{ music['minute'] }}:{{ music['second'] }}
-            <a href="{{ music['url'] }}">下载</a>
+            <a href="index?playlist={{ music['url'] }}" target="_blank">下载</a>
         </p>
     </li>
     {% endfor %}

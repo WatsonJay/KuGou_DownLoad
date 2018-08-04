@@ -3,10 +3,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>无损音乐搜索下载</title>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <link rel='stylesheet prefetch' href='css/reset.css'>
-	<link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel='stylesheet prefetch' href='../static/css/reset.css'>
+	<link rel="stylesheet" type="text/css" href="../static/css/default.css">
 	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'>
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 	<style type="text/css">
 		body{margin:0; font-family:arial; font-size:13px;line-height:24px;}
 		form{margin:0; padding:0;}
@@ -29,14 +29,6 @@
 		#footer #footer2 span{display:inline-block; width:14px; height:17px; background:url("http://s1.bdstatic.com/r/www/cache/static/global/img/icons_3bfb8e45.png") -600px -96px no-repeat; position:relative; top:3px;}
 
 	</style>
-	<script>
-		function checkForm(){
-			var q=document.getElementById("q");
-			if(q.value==null || q.value==""){
-				alert("骚年，请输入需要搜索的信息！");
-				return false;}
-			return true;}
-	</script>
 </head>
 <body>
 	<div id="container">
@@ -44,36 +36,14 @@
 		<div id="content">
 			<div id="title1"><h1>搜索下载你想要的音乐</h1></div>
 			<div id="shuru">
-				<form name="" action="" method="post" target="_blank" onsubmit="return checkForm()" >
-					<input id="q" class="kuang" type="text" name="keyword">
-					<input class="button" style="color:white;" type="submit" value="开始搜索">
-				</form>
+                <input id="q" class="kuang" type="text" name="keyword">
+                <button class="button" type="button" style="color:white;" id="search" >开始搜索</button>
+
+
 			</div>
-            <div class="tabs">
-		        <div class="tabs-header">
-		            <div class="border"></div>
-		                <ul>
-		                    <li class="active"><a href="#tab-1" tab-id="1" ripple="ripple" ripple-color="#FFF">酷狗音乐</a></li>
-                            <li><a href="#tab-2" tab-id="2" ripple="ripple" ripple-color="#FFF">qq音乐</a></li>
-		                    <li><a href="#tab-3" tab-id="3" ripple="ripple" ripple-color="#FFF">虾米音乐</a></li>
-                            <li><a href="#tab-4" tab-id="4" ripple="ripple" ripple-color="#FFF">网易音乐</a></li>
-		                </ul>
-                    <nav class="tabs-nav"><i id="prev" ripple="ripple" ripple-color="#FFF" class="material-icons">&#xE314;</i><i id="next" ripple="ripple" ripple-color="#FFF" class="material-icons">&#xE315;</i></nav>
-		        </div>
-		        <div class="tabs-content">
-		            <div tab-id="1" class="tab active">
-
-                    </div>
-		            <div tab-id="3" class="tab">
-
-                    </div>
-                    <div tab-id="4" class="tab">
-
-                    </div>
-                </div>
-		  </div>
+            <div id="div1"></div>
 		</div>
-		</div>
+    </div>
 
 		<div id="footer">
 			<div id="footer2">
@@ -83,87 +53,36 @@
 		</div>
 	</div>
 
-    <script src='js/stopExecutionOnTimeout.js?t=1'></script>
+    <script src='../static/js/stopExecutionOnTimeout.js?t=1'></script>
 	<script>
 	$(document).ready(function () {
-	    var activePos = $('.tabs-header .active').position();
-	    function changePos() {
-	        activePos = $('.tabs-header .active').position();
-	        $('.border').stop().css({
-	            left: activePos.left,
-	            width: $('.tabs-header .active').width()
-	        });
-	    }
-	    changePos();
-	    var tabHeight = $('.tab.active').height();
-	    function animateTabHeight() {
-	        tabHeight = $('.tab.active').height();
-	        $('.tabs-content').stop().css({ height: tabHeight + 'px' });
-	    }
-	    animateTabHeight();
-	    function changeTab() {
-	        var getTabId = $('.tabs-header .active a').attr('tab-id');
-	        $('.tab').stop().fadeOut(300, function () {
-	            $(this).removeClass('active');
-	        }).hide();
-	        $('.tab[tab-id=' + getTabId + ']').stop().fadeIn(300, function () {
-	            $(this).addClass('active');
-	            animateTabHeight();
-	        });
-	    }
-	    $('.tabs-header a').on('click', function (e) {
+        $('#search').on('click', function (e) {
 	        e.preventDefault();
-	        var tabId = $(this).attr('tab-id');
-	        $('.tabs-header a').stop().parent().removeClass('active');
-	        $(this).stop().parent().addClass('active');
-	        changePos();
-	        tabCurrentItem = tabItems.filter('.active');
-	        $('.tab').stop().fadeOut(300, function () {
-	            $(this).removeClass('active');
-	        }).hide();
-	        $('.tab[tab-id="' + tabId + '"]').stop().fadeIn(300, function () {
-	            $(this).addClass('active');
-	            animateTabHeight();
-	        });
-	    });
-	    var tabItems = $('.tabs-header ul li');
-	    var tabCurrentItem = tabItems.filter('.active');
-	    $('#next').on('click', function (e) {
-	        e.preventDefault();
-	        var nextItem = tabCurrentItem.next();
-	        tabCurrentItem.removeClass('active');
-	        if (nextItem.length) {
-	            tabCurrentItem = nextItem.addClass('active');
-	        } else {
-	            tabCurrentItem = tabItems.first().addClass('active');
-	        }
-	        changePos();
-	        changeTab();
-	    });
-	    $('#prev').on('click', function (e) {
-	        e.preventDefault();
-	        var prevItem = tabCurrentItem.prev();
-	        tabCurrentItem.removeClass('active');
-	        if (prevItem.length) {
-	            tabCurrentItem = prevItem.addClass('active');
-	        } else {
-	            tabCurrentItem = tabItems.last().addClass('active');
-	        }
-	        changePos();
-	        changeTab();
-	    });
-	    $('[ripple]').on('click', function (e) {
-	        var rippleDiv = $('<div class="ripple" />'), rippleOffset = $(this).offset(), rippleY = e.pageY - rippleOffset.top, rippleX = e.pageX - rippleOffset.left, ripple = $('.ripple');
-	        rippleDiv.css({
-	            top: rippleY - ripple.height() / 2,
-	            left: rippleX - ripple.width() / 2,
-	            background: $(this).attr('ripple-color')
-	        }).appendTo($(this));
-	        window.setTimeout(function () {
-	            rippleDiv.remove();
-	        }, 1500);
-	    });
+		    var q=document.getElementById("q");
+		    if(q.value==null || q.value==""){
+				alert("骚年，请输入需要搜索的信息！");
+				return false;}
+           else
+            {
+                var data = {};
+                data['keyword'] = q.value;
+                $.ajax({
+                    type:"post",
+                    data:data,
+                    dataType: 'html',
+                    success:function(data){
+                        $("#div1").html(data);
+                    },
+                    error:function(e) {
+                        $("#div1").html("获取数据失败！");
+                    }
+                });
+            }
+       });
 	});
+	</script>
+    <script>
+
 	</script>
 </body>
 </html>
