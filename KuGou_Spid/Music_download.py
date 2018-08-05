@@ -19,13 +19,17 @@ def HighSearch(keyword):
     if music_list is not None:
         item, items = {}, []
         for music in music_list:
-            Hash = str.lower(music['Hash'])
-            key_new = Md5(Hash)  # 生成v2系统key
+            SQHash = str.lower(music['SQHash'])
+            HQHash = str.lower(music['HQHash'])
+            key_new_SQ = V2Md5(SQHash)  # 生成v2系统key
+            key_new_HQ = V2Md5(HQHash)
             try:
-                DownUrl = web_request.parse(Music_api_3 + '&hash=%s&key=%s' % (Hash, key_new))['url']
+                DownUrl = web_request.parse(Music_api_2 + '&hash=%s&key=%s' % (SQHash, key_new_SQ))
+                if DownUrl['status'] == 2:
+                    DownUrl = web_request.parse(Music_api_2 + '&hash=%s&key=%s' % (HQHash, key_new_HQ))
                 item['Song'] = music['Song'] # 歌名
                 item['Singer'] = music['Singer']  # 歌手
-                item['url'] = DownUrl
+                item['url'] = DownUrl['url'][0]
                 item['Size'] = music['Size']
                 item['minute'] = music['minute']
                 item['second'] = music['second']

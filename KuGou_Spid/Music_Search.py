@@ -13,7 +13,8 @@ def search(keyword):
             if music['SQFileHash'] != '0'*32:
                 item['Song'] = music['SongName']  # 歌名
                 item['Singer'] = music['SingerName']  # 歌手
-                item['Hash'] = music['SQFileHash'] # 歌曲无损hash
+                item['SQHash'] = music['SQFileHash'] # 歌曲无损hash
+                item['HQHash'] = music['FileHash']  # 歌曲高清hash
                 item['Size'] = str(round((music['SQFileSize']/1024)/1024,2))+'M'
                 item['minute'] = str(int(music['SQDuration']/60))
                 if(music['SQDuration']%60<10):
