@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="G:\technology\python\KuGou_DownLoad\venv"
+VIRTUAL_ENV="F:\python\KuGou_DownLoad\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

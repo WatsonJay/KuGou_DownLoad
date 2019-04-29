@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="G:\technology\python\KuGou_DownLoad\venv"
+$env:VIRTUAL_ENV="F:\python\KuGou_DownLoad\venv"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name
